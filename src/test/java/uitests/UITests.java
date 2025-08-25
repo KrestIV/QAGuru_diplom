@@ -108,7 +108,6 @@ public class UITests extends UIBaseTest {
         purchasePage.checkPurchaseForm();
     }
 
-    @SuppressWarnings("TestFailedLine")
     @Test
     public void searchItemMustShowListOfItemsTest() {
 
