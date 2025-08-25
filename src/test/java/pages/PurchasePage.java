@@ -6,9 +6,8 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static pages.OpenPageLoadCookiesComponent.openPageLoadCookies;
 
-public class PurchasePage {
+public class PurchasePage extends InitialPage {
 
     private final SelenideElement inputPostIndex = $("input[name=\"data[new][index]\"]"),
             inputRegion = $("input[name=\"data[new][region]\"]"),
@@ -18,10 +17,9 @@ public class PurchasePage {
             inputApartment = $("input[name=\"data[new][flat]\"]"),
             tAreaOrderComment = $("textarea[name=\"data[new][order_comments]\"]");
 
-    @Step("Открыть страницу заказа авторизованным пользователем")
+    @Step("Открыть страницу заказа")
     public PurchasePage openPurchasePageWithAuthorizedUser() {
 
-        openPageLoadCookies();
         open("/emarket/purchase/?");
 
         return this;

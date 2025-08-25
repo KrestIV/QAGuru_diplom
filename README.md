@@ -5,7 +5,7 @@
 ### <p style="text-align:center">С API-частью можно ознакомиться по [ссылке](https://github.com/KrestIV/QAGuru_diplom_api)</p>
 
 <p style="text-align:center">
-<img src="media/kakadu.png" height="201" width="157" style="background: #FFFFFF" alt="centicore_logo">
+<img src="media/kakadu.png" height="201" width="157" style="background: #FFFFFF" alt="kakadu_logo">
 </p>
 
 # Содержание

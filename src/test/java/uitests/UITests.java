@@ -1,21 +1,21 @@
 package uitests;
 
-import storages.AuthDataStorage;
-import storages.TestDataStorage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.*;
+import storages.AuthDataStorage;
+import storages.TestDataStorage;
 import uiapisteps.CommonAPISteps;
 
 @Tag("FullTest")
 public class UITests extends UIBaseTest {
 
-    MainPage mainPage = new MainPage();
-    SearchPage searchPage = new SearchPage();
-    PurchasePage purchasePage = new PurchasePage();
-    CartPage cartPage = new CartPage();
-    DogFoodPage dogFoodPage = new DogFoodPage();
-    CommonAPISteps commonAPISteps = new CommonAPISteps();
+    final MainPage mainPage = new MainPage();
+    final SearchPage searchPage = new SearchPage();
+    final PurchasePage purchasePage = new PurchasePage();
+    final CartPage cartPage = new CartPage();
+    final DogFoodPage dogFoodPage = new DogFoodPage();
+    final CommonAPISteps commonAPISteps = new CommonAPISteps();
 
     @Test
     public void loginWithCorrectCredentialsMustGreetUserTest() {
@@ -34,9 +34,9 @@ public class UITests extends UIBaseTest {
                 .receiveCookies(AuthDataStorage.getAuthDataContainer())
                 .prepareCart();
 
-        dogFoodPage
-                .openPageWithAuthorizedUser()
-                .addItemToCart();
+        dogFoodPage.initializeUI();
+        dogFoodPage.openPageWithAuthorizedUser();
+        dogFoodPage.addItemToCart();
 
         commonAPISteps
                 .checkCartItem(TestDataStorage.getItemCartPrimaryDescription());
@@ -52,9 +52,9 @@ public class UITests extends UIBaseTest {
                 .prepareCart()
                 .putItemToCart(TestDataStorage.getItemCartPrimaryId(), quantity);
 
-        cartPage
-                .openCartPageWithAuthorizedUser()
-                .checkFirstItemQuantity(quantity);
+        cartPage.initializeUI();
+        cartPage.openCartPageWithAuthorizedUser();
+        cartPage.checkFirstItemQuantity(quantity);
 
         commonAPISteps
                 .prepareCart();
@@ -69,9 +69,9 @@ public class UITests extends UIBaseTest {
                 .prepareCart()
                 .putItemToCart(TestDataStorage.getItemCartPrimaryId());
 
-        cartPage
-                .openCartPageWithAuthorizedUser()
-                .deleteFirstItem();
+        cartPage.initializeUI();
+        cartPage.openCartPageWithAuthorizedUser();
+        cartPage.deleteFirstItem();
 
         commonAPISteps
                 .checkCartEmpty();
@@ -87,9 +87,9 @@ public class UITests extends UIBaseTest {
                 .putItemToCart(TestDataStorage.getItemCartPrimaryId())
                 .putItemToCart(TestDataStorage.getItemCartSecondaryId());
 
-        cartPage
-                .openCartPageWithAuthorizedUser()
-                .clearCart();
+        cartPage.initializeUI();
+        cartPage.openCartPageWithAuthorizedUser();
+        cartPage.clearCart();
 
         commonAPISteps
                 .checkCartEmpty();
@@ -103,11 +103,12 @@ public class UITests extends UIBaseTest {
                 .prepareCart()
                 .putItemToCart(TestDataStorage.getItemCartPrimaryId());
 
-        purchasePage
-                .openPurchasePageWithAuthorizedUser()
-                .checkPurchaseForm();
+        purchasePage.initializeUI();
+        purchasePage.openPurchasePageWithAuthorizedUser();
+        purchasePage.checkPurchaseForm();
     }
 
+    @SuppressWarnings("TestFailedLine")
     @Test
     public void searchItemMustShowListOfItemsTest() {
 

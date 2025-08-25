@@ -1,10 +1,10 @@
 package uiapisteps;
 
-import storages.CookieStorage;
 import io.qameta.allure.Step;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.AuthDataModel;
+import storages.CookieStorage;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -6,18 +6,16 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static pages.OpenPageLoadCookiesComponent.openPageLoadCookies;
 
-public class CartPage {
+public class CartPage extends InitialPage {
 
     private final SelenideElement orderTableFirstRow = $("table#order_block").$("tbody").$("tr"),
             buttonFirstItemDelete = $("a[title=\"Удалить\"]"),
             buttonDeleteAll = $("a[href=\"/emarket/basket/remove_all/\"]");
 
-    @Step("Открыть корзину авторизованным пользователем")
+    @Step("Открыть корзину")
     public CartPage openCartPageWithAuthorizedUser() {
 
-        openPageLoadCookies();
         open("/emarket/cart/");
 
         return this;

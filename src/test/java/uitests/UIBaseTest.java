@@ -5,9 +5,6 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.LaunchConfig;
 import helpers.Attach;
-import storages.AuthDataStorage;
-import storages.OpenPicUrlStorage;
-import storages.TestDataStorage;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
 import models.AuthDataModel;
@@ -16,6 +13,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import storages.AuthDataStorage;
+import storages.OpenPicUrlStorage;
+import storages.TestDataStorage;
 
 import java.util.Map;
 
